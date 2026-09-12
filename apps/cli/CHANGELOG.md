@@ -1,5 +1,21 @@
 # executor
 
+## 1.6.9
+
+### Patch Changes
+
+- [#1977](https://github.com/UsefulSoftwareCo/executor/pull/1977) [`6870f38`](https://github.com/UsefulSoftwareCo/executor/commit/6870f38438e0729aaf6594f66afa828d118fb13c) Thanks [@RhysSullivan](https://github.com/RhysSullivan)! - Compile `describe.tool` previews against only the definitions a tool references, drop the compiler's per-call retained graph, and fall back to `unknown` for schemas over a node limit. Describing a tool from a large OpenAPI spec no longer burns seconds of CPU or leaks memory in the shared session isolate.
+
+- [#1978](https://github.com/UsefulSoftwareCo/executor/pull/1978) [`f1d95f2`](https://github.com/UsefulSoftwareCo/executor/commit/f1d95f2b657316180992d5a67c24b7b76dc2b0f1) Thanks [@RhysSullivan](https://github.com/RhysSullivan)! - Report an MCP `execute` call that dies with a session reset as a JSON-RPC error instead of a silently closed stream. The front worker answers outstanding request ids when the session socket closes abnormally or a response deadline passes, and a rebuilt session answers ids stranded by a previous incarnation on the next stream. The plain memory-limit reset is now classified as transient.
+
+- [#1963](https://github.com/UsefulSoftwareCo/executor/pull/1963) [`eaa1f3a`](https://github.com/UsefulSoftwareCo/executor/commit/eaa1f3a57ffff88aede8e83783ea7ed4471aec1f) Thanks [@RhysSullivan](https://github.com/RhysSullivan)! - Bundle the Geist and Geist Mono fonts with the console instead of loading them from Google Fonts. The UI no longer stays blank when a self-hosted deployment cannot reach fonts.googleapis.com.
+
+- Updated dependencies []:
+  - @executor-js/sdk@1.6.9
+  - @executor-js/runtime-quickjs@1.6.9
+  - @executor-js/local@1.6.9
+  - @executor-js/api@1.4.72
+
 ## 1.6.8
 
 ### Patch Changes
